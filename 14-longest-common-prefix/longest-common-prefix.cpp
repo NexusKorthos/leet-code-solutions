@@ -14,12 +14,9 @@ public:
             string current_string = strs[i];
 
             while (getSubStr(current_string, length) != prefix && length >= 0) {
-                cout << getSubStr(current_string, length) << " " << prefix << endl;
                 length = length - 1;
                 prefix = getSubStr(prefix, length);
             }
-
-            cout << getSubStr(current_string, length) << " " << prefix << endl;
 
         }
 
@@ -27,7 +24,7 @@ public:
         
     }
 private:
-    string getSubStr(string s, int length) {
+    string getSubStr(string& s, int& length) {
         return s.substr(0, max(length, 0));
     }
 };
