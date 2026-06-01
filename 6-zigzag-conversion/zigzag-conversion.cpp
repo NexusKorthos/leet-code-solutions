@@ -19,11 +19,7 @@ public:
 
             going_down = (row == 0) ? true : (row == numRows - 1) ? false : going_down;
 
-            if (going_down) {
-                row++;
-            } else {
-                row--;
-            }
+            row = (going_down) ? row + 1 : row - 1;
 
             letter++;
 
