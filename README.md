@@ -1,2 +1,2 @@
 # leet-code-solutions
-Me solving problems for no reason
+Me solving problems, because yes.
