@@ -11,8 +11,6 @@ public:
 
         for (int i = 1; i < strs.size(); i++) {
 
-            string current_string = strs[i];
-
             while (getSubStr(strs[i], length) != prefix && length >= 0) {
                 length = length - 1;
                 prefix = getSubStr(prefix, length);
