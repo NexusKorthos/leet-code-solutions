@@ -6,24 +6,19 @@ public:
 
         for (int i = 0; i < nums.size(); i++) {
 
-            int current_num = nums[i];
-
             int n = 1;
-
-            int current_ans = -1;
             
-            while (n <= current_num + 1) {
+            while (n <= nums[i] + 1) {
 
-                int m = current_num - n;
-                if ((m | m + 1) == current_num) {
-                    current_ans = m;
+                int m = nums[i] - n;
+                
+                if ((m | m + 1) == nums[i]) {
+                    ans[i] = m;
                 }
 
                 n *= 2;
 
             }
-
-            ans[i] = current_ans;
 
         }
         
