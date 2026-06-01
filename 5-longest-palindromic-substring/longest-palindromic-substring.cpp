@@ -6,45 +6,41 @@ public:
         if (s.empty())
             return "";
 
-        string result = "";
+        int start = 0, length = 0;
 
         for (int m = 0; m < s.length(); m++) {
 
-            string odd_substr = getSubString(s, m, m);
-            string even_substr = getSubString(s, m, m + 1);
+            int odd_length = getSubString(s, m, m);
+            int even_length = getSubString(s, m, m + 1);
 
-            if (result.length() < odd_substr.length())
-                result = odd_substr;
+            int longer_length = max(odd_length, even_length);
 
-            if (result.length() < even_substr.length())
-                result = even_substr;
+            if (length < longer_length) {
+                length = longer_length;
+                start = max(0, m - (length-1)/2);
+            }
 
         }
 
-        return result;
+        return s.substr(start, length);
 
     }
 
 private:
 
-    string getSubString(string s, int left, int right) {
+    int getSubString(string s, int left, int right) {
 
         left = max(0, left);
         right = min(s.length() - 1, (unsigned long)right);
 
-        string sub_string = "";
-
         while (left >= 0 && right < s.length() && s[left] == s[right]) {
-
-            sub_string = s.substr(left, right - left + 1);
-
-            //cout << left << " " << right << " " << sub_string << endl;
-            
             left--;
             right++;
         }
 
-        return sub_string;
+        cout << right - left - 1 << endl;
+
+        return right - left - 1;
 
     }
 
